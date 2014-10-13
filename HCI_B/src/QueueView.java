@@ -49,29 +49,224 @@ public class QueueView extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        HeaderPanel = new javax.swing.JPanel();
+        btnClearQueue = new javax.swing.JButton();
+        btnStartQueue = new javax.swing.JButton();
+        comboDoWhenFinished = new javax.swing.JComboBox();
+        lblDoWhenFinished = new javax.swing.JLabel();
+        QueueStatusPanel = new javax.swing.JPanel();
+        lblQueueStatus = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        QueuePanel = new javax.swing.JPanel();
+        scrollQueue = new javax.swing.JScrollBar();
+        QueueItem = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
+        lblTitleValue = new javax.swing.JLabel();
+        lblChaptersValue = new javax.swing.JLabel();
+        lblChapters = new javax.swing.JLabel();
+        lblSourceValue = new javax.swing.JLabel();
+        lblSource = new javax.swing.JLabel();
+        lblDestinationValue = new javax.swing.JLabel();
+        lblDestination = new javax.swing.JLabel();
+        btnEditQueueItem = new javax.swing.JButton();
+        btnRemoveQueueItem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextPane1.setText("Testing");
-        jScrollPane1.setViewportView(jTextPane1);
+        btnClearQueue.setText("Clear Queue");
+
+        btnStartQueue.setText("Start");
+
+        comboDoWhenFinished.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Do nothing", "Shut down", "Suspend", "Hibernate", "Lock system", "Log off", "Quit" }));
+
+        lblDoWhenFinished.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblDoWhenFinished.setText("When queue finishes:");
+
+        javax.swing.GroupLayout HeaderPanelLayout = new javax.swing.GroupLayout(HeaderPanel);
+        HeaderPanel.setLayout(HeaderPanelLayout);
+        HeaderPanelLayout.setHorizontalGroup(
+            HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPanelLayout.createSequentialGroup()
+                .addGap(135, 135, 135)
+                .addComponent(btnClearQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(273, 273, 273)
+                .addComponent(lblDoWhenFinished)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comboDoWhenFinished, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(25, 25, 25))
+            .addGroup(HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(HeaderPanelLayout.createSequentialGroup()
+                    .addGap(22, 22, 22)
+                    .addComponent(btnStartQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(626, Short.MAX_VALUE)))
+        );
+        HeaderPanelLayout.setVerticalGroup(
+            HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HeaderPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnClearQueue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(HeaderPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboDoWhenFinished, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDoWhenFinished))
+                .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(HeaderPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(btnStartQueue, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        lblQueueStatus.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        lblQueueStatus.setText("Queue Ready");
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+        jLabel1.setText("1 Job Pending");
+
+        javax.swing.GroupLayout QueueStatusPanelLayout = new javax.swing.GroupLayout(QueueStatusPanel);
+        QueueStatusPanel.setLayout(QueueStatusPanelLayout);
+        QueueStatusPanelLayout.setHorizontalGroup(
+            QueueStatusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(QueueStatusPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblQueueStatus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(36, 36, 36))
+        );
+        QueueStatusPanelLayout.setVerticalGroup(
+            QueueStatusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueueStatusPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(QueueStatusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblQueueStatus)
+                    .addComponent(jLabel1))
+                .addContainerGap())
+        );
+
+        QueueItem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        lblTitle.setText("Title:");
+
+        lblTitleValue.setText("Movie1.mov");
+
+        lblChaptersValue.setText("3 to 6");
+
+        lblChapters.setText("Chapters:");
+
+        lblSourceValue.setText("/usr/home/test.mpg");
+
+        lblSource.setText("Source:");
+
+        lblDestinationValue.setText("/usr/out/test_out.mkv");
+
+        lblDestination.setText("Destination:");
+
+        btnEditQueueItem.setText("Edit");
+
+        btnRemoveQueueItem.setText("Remove");
+
+        javax.swing.GroupLayout QueueItemLayout = new javax.swing.GroupLayout(QueueItem);
+        QueueItem.setLayout(QueueItemLayout);
+        QueueItemLayout.setHorizontalGroup(
+            QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(QueueItemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(QueueItemLayout.createSequentialGroup()
+                        .addComponent(lblTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTitleValue)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(QueueItemLayout.createSequentialGroup()
+                        .addGroup(QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(QueueItemLayout.createSequentialGroup()
+                                .addComponent(lblDestination)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblDestinationValue))
+                            .addGroup(QueueItemLayout.createSequentialGroup()
+                                .addComponent(lblSource)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblSourceValue))
+                            .addGroup(QueueItemLayout.createSequentialGroup()
+                                .addComponent(lblChapters)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblChaptersValue)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 334, Short.MAX_VALUE)
+                        .addComponent(btnEditQueueItem, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemoveQueueItem, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17))))
+        );
+        QueueItemLayout.setVerticalGroup(
+            QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(QueueItemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTitle)
+                    .addComponent(lblTitleValue))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(QueueItemLayout.createSequentialGroup()
+                        .addGroup(QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblChapters)
+                            .addComponent(lblChaptersValue))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSource)
+                            .addComponent(lblSourceValue))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                        .addGroup(QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDestination)
+                            .addComponent(lblDestinationValue)))
+                    .addGroup(QueueItemLayout.createSequentialGroup()
+                        .addGroup(QueueItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEditQueueItem, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRemoveQueueItem, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout QueuePanelLayout = new javax.swing.GroupLayout(QueuePanel);
+        QueuePanel.setLayout(QueuePanelLayout);
+        QueuePanelLayout.setHorizontalGroup(
+            QueuePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QueuePanelLayout.createSequentialGroup()
+                .addComponent(QueueItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scrollQueue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        QueuePanelLayout.setVerticalGroup(
+            QueuePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(scrollQueue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(QueuePanelLayout.createSequentialGroup()
+                .addComponent(QueueItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 172, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addComponent(HeaderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
-                .addGap(143, 143, 143))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(QueueStatusPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(QueuePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(263, Short.MAX_VALUE))
+                .addComponent(HeaderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(QueueStatusPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(QueuePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -113,7 +308,26 @@ public class QueueView extends JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JPanel HeaderPanel;
+    private javax.swing.JPanel QueueItem;
+    private javax.swing.JPanel QueuePanel;
+    private javax.swing.JPanel QueueStatusPanel;
+    private javax.swing.JButton btnClearQueue;
+    private javax.swing.JButton btnEditQueueItem;
+    private javax.swing.JButton btnRemoveQueueItem;
+    private javax.swing.JButton btnStartQueue;
+    private javax.swing.JComboBox comboDoWhenFinished;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblChapters;
+    private javax.swing.JLabel lblChaptersValue;
+    private javax.swing.JLabel lblDestination;
+    private javax.swing.JLabel lblDestinationValue;
+    private javax.swing.JLabel lblDoWhenFinished;
+    private javax.swing.JLabel lblQueueStatus;
+    private javax.swing.JLabel lblSource;
+    private javax.swing.JLabel lblSourceValue;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel lblTitleValue;
+    private javax.swing.JScrollBar scrollQueue;
     // End of variables declaration//GEN-END:variables
 }
