@@ -76,6 +76,9 @@ public class NewJobView2 extends javax.swing.JFrame {
         picturePanel = new javax.swing.JPanel();
         filterPanel = new javax.swing.JPanel();
         audioPanel = new javax.swing.JPanel();
+        subtitlesPanel = new javax.swing.JPanel();
+        chaptersPanel = new javax.swing.JPanel();
+        OptimisePanel = new javax.swing.JPanel();
         savePanel = new javax.swing.JPanel();
         saveBtn = new javax.swing.JButton();
 
@@ -99,6 +102,11 @@ public class NewJobView2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         doneBtn.setText("Done");
+        doneBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doneBtnActionPerformed(evt);
+            }
+        });
 
         previewBtn.setText("Preview");
 
@@ -252,7 +260,7 @@ public class NewJobView2 extends javax.swing.JFrame {
                 .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(optionsBtn)
                     .addComponent(advancedToggleButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jLabel5.setText("Frames");
@@ -410,6 +418,45 @@ public class NewJobView2 extends javax.swing.JFrame {
 
         TabbedPane.addTab("Audio", audioPanel);
 
+        javax.swing.GroupLayout subtitlesPanelLayout = new javax.swing.GroupLayout(subtitlesPanel);
+        subtitlesPanel.setLayout(subtitlesPanelLayout);
+        subtitlesPanelLayout.setHorizontalGroup(
+            subtitlesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
+        subtitlesPanelLayout.setVerticalGroup(
+            subtitlesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 414, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Subtitles", subtitlesPanel);
+
+        javax.swing.GroupLayout chaptersPanelLayout = new javax.swing.GroupLayout(chaptersPanel);
+        chaptersPanel.setLayout(chaptersPanelLayout);
+        chaptersPanelLayout.setHorizontalGroup(
+            chaptersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
+        chaptersPanelLayout.setVerticalGroup(
+            chaptersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 414, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Chapters", chaptersPanel);
+
+        javax.swing.GroupLayout OptimisePanelLayout = new javax.swing.GroupLayout(OptimisePanel);
+        OptimisePanel.setLayout(OptimisePanelLayout);
+        OptimisePanelLayout.setHorizontalGroup(
+            OptimisePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 279, Short.MAX_VALUE)
+        );
+        OptimisePanelLayout.setVerticalGroup(
+            OptimisePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 414, Short.MAX_VALUE)
+        );
+
+        TabbedPane.addTab("Optimise", OptimisePanel);
+
         saveBtn.setText(" Save ");
 
         javax.swing.GroupLayout savePanelLayout = new javax.swing.GroupLayout(savePanel);
@@ -442,7 +489,7 @@ public class NewJobView2 extends javax.swing.JFrame {
         );
         advancedPanelLayout.setVerticalGroup(
             advancedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TabbedPane, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(TabbedPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(advancedPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(savePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -489,6 +536,12 @@ public class NewJobView2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_advancedToggleButtonActionPerformed
 
+    private void doneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneBtnActionPerformed
+        //Add the job to the queue after that dispose of the jframe
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_doneBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -526,12 +579,14 @@ public class NewJobView2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JobPanel;
+    private javax.swing.JPanel OptimisePanel;
     private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JPanel advancedPanel;
     private javax.swing.JToggleButton advancedToggleButton;
     private javax.swing.JComboBox angleComboBox;
     private javax.swing.JPanel audioPanel;
     private javax.swing.JTextField aveBitRateField;
+    private javax.swing.JPanel chaptersPanel;
     private javax.swing.JComboBox choiceComboBox;
     private javax.swing.JRadioButton constantFrameRateRadio;
     private javax.swing.JLabel destinationLabel;
@@ -569,6 +624,7 @@ public class NewJobView2 extends javax.swing.JFrame {
     private javax.swing.JPanel savePanel;
     private javax.swing.JLabel sourceLabel;
     private javax.swing.JTextField sourceTextField;
+    private javax.swing.JPanel subtitlesPanel;
     private javax.swing.JComboBox toComboBox;
     private javax.swing.JLabel toLabel;
     private javax.swing.JCheckBox turboFirstPassCheckbox;
