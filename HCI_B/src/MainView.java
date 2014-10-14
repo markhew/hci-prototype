@@ -44,8 +44,8 @@ public class MainView extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         btnViewQueue = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        SettingsBtn = new javax.swing.JButton();
+        ActivityLogBtn = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jProgressBar2 = new javax.swing.JProgressBar();
@@ -68,9 +68,19 @@ public class MainView extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Settings");
+        SettingsBtn.setText("Settings");
+        SettingsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SettingsBtnActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Activity Log");
+        ActivityLogBtn.setText("Activity Log");
+        ActivityLogBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActivityLogBtnActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Help");
 
@@ -87,12 +97,12 @@ public class MainView extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(SettingsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(btnViewQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ActivityLogBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(70, 70, 70)
@@ -111,9 +121,9 @@ public class MainView extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnViewQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SettingsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ActivityLogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -127,7 +137,8 @@ public class MainView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        NewJobView nj = new NewJobView();
+        nj.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnViewQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewQueueActionPerformed
@@ -140,6 +151,18 @@ public class MainView extends javax.swing.JFrame {
             btnViewQueue.setText("Hide Queue");
         }
     }//GEN-LAST:event_btnViewQueueActionPerformed
+
+    private void SettingsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingsBtnActionPerformed
+        // TODO add your handling code here:
+        SettingsView s = new SettingsView();
+        s.setVisible(true);
+    }//GEN-LAST:event_SettingsBtnActionPerformed
+
+    private void ActivityLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivityLogBtnActionPerformed
+        // TODO add your handling code here:
+        ActivityLogView alv = new ActivityLogView();
+        alv.setVisible(true);
+    }//GEN-LAST:event_ActivityLogBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,10 +222,10 @@ public class MainView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ActivityLogBtn;
+    private javax.swing.JButton SettingsBtn;
     private javax.swing.JButton btnViewQueue;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JProgressBar jProgressBar2;
