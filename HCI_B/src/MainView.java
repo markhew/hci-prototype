@@ -15,6 +15,7 @@ public class MainView extends javax.swing.JFrame {
 
     // queue window
     private QueueView queueView;
+    private ActivityLogView alv;
     private static boolean queueShowing = false;
 
     /**
@@ -29,6 +30,9 @@ public class MainView extends javax.swing.JFrame {
 
         // init queue view
         queueView = new QueueView(this);
+        //init Activity log view
+        alv = new ActivityLogView();
+
         
         // add event listener to watch this window position
         //this.addComponentListener(new MainViewWindowListener());
@@ -139,6 +143,7 @@ public class MainView extends javax.swing.JFrame {
         NewJobView nj = new NewJobView();
         
         nj.setVisible(true);
+        nj.setResizable(false);//Dont allow the user to resize the window
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnViewQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewQueueActionPerformed
@@ -160,8 +165,12 @@ public class MainView extends javax.swing.JFrame {
 
     private void ActivityLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActivityLogBtnActionPerformed
         // TODO add your handling code here:
-        ActivityLogView alv = new ActivityLogView();
-        alv.setVisible(true);
+        if(alv.isShowing()){
+            alv.setVisible(false);
+        }
+        else {
+            alv.setVisible(true);
+        }
     }//GEN-LAST:event_ActivityLogBtnActionPerformed
 
     /**
