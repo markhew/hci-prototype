@@ -30,9 +30,12 @@ public class NewJobView extends javax.swing.JFrame {
     }
     
     private void groupButtons(){
-        ButtonGroup bg = new ButtonGroup();
-        bg.add(automaticRadio);
-        bg.add(customRadio);
+        ButtonGroup picbg = new ButtonGroup();
+        ButtonGroup vidbg = new ButtonGroup();
+        picbg.add(automaticRadio);
+        picbg.add(customRadio);
+        vidbg.add(constantFrameRateRadio);
+        vidbg.add(variableFrameRateRadio);
     }
 
     /**
@@ -61,6 +64,11 @@ public class NewJobView extends javax.swing.JFrame {
         jLabel31 = new javax.swing.JLabel();
         jToolBar1 = new javax.swing.JToolBar();
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        jSpinner1 = new javax.swing.JSpinner();
+        topField = new javax.swing.JFormattedTextField();
+        rightField = new javax.swing.JFormattedTextField();
+        leftField = new javax.swing.JFormattedTextField();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         JobPanel = new javax.swing.JPanel();
         doneBtn = new javax.swing.JButton();
         previewBtn = new javax.swing.JButton();
@@ -120,13 +128,13 @@ public class NewJobView extends javax.swing.JFrame {
         automaticRadio = new javax.swing.JRadioButton();
         customRadio = new javax.swing.JRadioButton();
         jLabel23 = new javax.swing.JLabel();
-        topField = new javax.swing.JFormattedTextField();
         jLabel24 = new javax.swing.JLabel();
-        rightField = new javax.swing.JFormattedTextField();
         jLabel25 = new javax.swing.JLabel();
-        leftField = new javax.swing.JFormattedTextField();
         jLabel26 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        topSpinner = new javax.swing.JSpinner();
+        leftSpinner = new javax.swing.JSpinner();
+        rightSpinner = new javax.swing.JSpinner();
+        bottomSpinner = new javax.swing.JSpinner();
         filterPanel = new javax.swing.JPanel();
         detelecineCheckbox = new javax.swing.JCheckBox();
         decombCheckbox = new javax.swing.JCheckBox();
@@ -377,9 +385,9 @@ public class NewJobView extends javax.swing.JFrame {
 
         jLabel8.setText("Framerate");
 
-        videoFrameComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        videoFrameComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "H.264(x264)", "MPEG-4 ", "MPEG-2", " " }));
 
-        frameRateComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        frameRateComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Same as source", "10", "15", "30", "35", "40", "45", "50" }));
 
         constantFrameRateRadio.setText("Constant Framerate");
 
@@ -407,13 +415,6 @@ public class NewJobView extends javax.swing.JFrame {
                     .addGroup(videoPanelLayout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(videoPanelLayout.createSequentialGroup()
-                        .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(videoPanelLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel10))
-                        .addGap(0, 77, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, videoPanelLayout.createSequentialGroup()
                         .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(videoPanelLayout.createSequentialGroup()
@@ -426,10 +427,10 @@ public class NewJobView extends javax.swing.JFrame {
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel8))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(videoFrameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(frameRateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(frameRateComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(videoFrameComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(videoPanelLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,7 +438,14 @@ public class NewJobView extends javax.swing.JFrame {
                                     .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel11)
                                         .addComponent(variableFrameRateRadio)))))
-                        .addGap(16, 16, 16))))
+                        .addGap(16, 16, 16))
+                    .addGroup(videoPanelLayout.createSequentialGroup()
+                        .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addGroup(videoPanelLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(videoPanelLayout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -518,11 +526,11 @@ public class NewJobView extends javax.swing.JFrame {
 
         jLabel20.setText("Anamorphic :");
 
-        anamorphicComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        anamorphicComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "None", "Loose", "Strict", "Custom" }));
 
         jLabel21.setText("Modulus :");
 
-        modulusComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        modulusComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "16", "8", "4", "2" }));
 
         jLabel22.setText("Cropping");
 
@@ -569,6 +577,7 @@ public class NewJobView extends javax.swing.JFrame {
                                         .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addComponent(outWidthField)
                                             .addComponent(outHeightField)))
+                                    .addComponent(jLabel22)
                                     .addGroup(picturePanelLayout.createSequentialGroup()
                                         .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jLabel21)
@@ -577,36 +586,29 @@ public class NewJobView extends javax.swing.JFrame {
                                         .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(anamorphicComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(modulusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel22)))))
-                    .addGroup(picturePanelLayout.createSequentialGroup()
-                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(picturePanelLayout.createSequentialGroup()
-                                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(picturePanelLayout.createSequentialGroup()
-                                        .addGap(33, 33, 33)
-                                        .addComponent(leftField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, picturePanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel25)
-                                        .addGap(13, 13, 13)))
-                                .addGap(12, 12, 12)
-                                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(topField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel26)))
-                            .addGroup(picturePanelLayout.createSequentialGroup()
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)))
-                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(picturePanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rightField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(picturePanelLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jLabel24))))
+                                        .addGap(47, 47, 47)
+                                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(picturePanelLayout.createSequentialGroup()
+                                                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel25)
+                                                    .addComponent(leftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(topSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(picturePanelLayout.createSequentialGroup()
+                                                    .addGap(6, 6, 6)
+                                                    .addComponent(bottomSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jLabel26)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel24)
+                                            .addComponent(rightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addComponent(automaticRadio)
                     .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(jLabel23)
                         .addComponent(customRadio)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 66, Short.MAX_VALUE))
         );
         picturePanelLayout.setVerticalGroup(
             picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -648,21 +650,20 @@ public class NewJobView extends javax.swing.JFrame {
                 .addComponent(jLabel23)
                 .addGap(2, 2, 2)
                 .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(topSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel24))
                     .addGroup(picturePanelLayout.createSequentialGroup()
-                        .addComponent(topField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel26))
-                    .addGroup(picturePanelLayout.createSequentialGroup()
-                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel24))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel25)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rightField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(leftField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(leftSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rightSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addComponent(jLabel26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(bottomSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         TabbedPane.addTab("Picture", picturePanel);
@@ -927,6 +928,7 @@ public class NewJobView extends javax.swing.JFrame {
     private javax.swing.JPanel audioPanel;
     private javax.swing.JRadioButton automaticRadio;
     private javax.swing.JTextField aveBitRateField;
+    private javax.swing.JSpinner bottomSpinner;
     private javax.swing.JPanel chaptersPanel;
     private javax.swing.JComboBox choiceComboBox;
     private javax.swing.JRadioButton constantFrameRateRadio;
@@ -987,10 +989,12 @@ public class NewJobView extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
+    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JFormattedTextField leftField;
+    private javax.swing.JSpinner leftSpinner;
     private javax.swing.JComboBox modulusComboBox;
     private javax.swing.JButton optionsBtn;
     private javax.swing.JFormattedTextField outHeightField;
@@ -1003,6 +1007,7 @@ public class NewJobView extends javax.swing.JFrame {
     private javax.swing.JButton previewBtn;
     private javax.swing.JLabel ratioLabel;
     private javax.swing.JFormattedTextField rightField;
+    private javax.swing.JSpinner rightSpinner;
     private javax.swing.JButton saveBtn;
     private javax.swing.JPanel savePanel;
     private javax.swing.JLabel sizeLabel;
@@ -1012,6 +1017,7 @@ public class NewJobView extends javax.swing.JFrame {
     private javax.swing.JComboBox toComboBox;
     private javax.swing.JLabel toLabel;
     private javax.swing.JFormattedTextField topField;
+    private javax.swing.JSpinner topSpinner;
     private javax.swing.JCheckBox turboFirstPassCheckbox;
     private javax.swing.JRadioButton variableFrameRateRadio;
     private javax.swing.JComboBox videoFrameComboBox;
