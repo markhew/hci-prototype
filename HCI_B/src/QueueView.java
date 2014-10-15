@@ -19,12 +19,8 @@ public class QueueView extends JFrame {
      * Creates new form QueueView
      */
     public QueueView(MainView parent) {
-        this.setUndecorated(true);
         initComponents();
-        //this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Already there
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.parent = parent;
-
     }
 
     public QueueView() {
