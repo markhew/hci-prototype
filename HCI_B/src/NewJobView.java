@@ -12,7 +12,7 @@ import javax.swing.ButtonGroup;
 public class NewJobView extends javax.swing.JFrame {
 
     /**
-     * Creates new form NewJobView2
+     * Creates new form NewJobView
      */
     private final int defaultWidth = 560;
     private final int defaultHeight = 320;
@@ -59,6 +59,8 @@ public class NewJobView extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
+        jToolBar1 = new javax.swing.JToolBar();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         JobPanel = new javax.swing.JPanel();
         doneBtn = new javax.swing.JButton();
         previewBtn = new javax.swing.JButton();
@@ -187,6 +189,21 @@ public class NewJobView extends javax.swing.JFrame {
         jLabel30.setText("Denoise");
 
         jLabel31.setText("Deblocking");
+
+        jToolBar1.setRollover(true);
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 126, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 19, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -930,6 +947,7 @@ public class NewJobView extends javax.swing.JFrame {
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -971,6 +989,7 @@ public class NewJobView extends javax.swing.JFrame {
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JFormattedTextField leftField;
     private javax.swing.JComboBox modulusComboBox;
     private javax.swing.JButton optionsBtn;
