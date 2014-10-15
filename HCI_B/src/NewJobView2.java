@@ -13,10 +13,18 @@ public class NewJobView2 extends javax.swing.JFrame {
     /**
      * Creates new form NewJobView2
      */
+    private final int defaultWidth = 560;
+    private final int defaultHeight = 320;
+    private final int viewHeight = 500;
+    private double aspectRatio;
     public NewJobView2() {
         initComponents();
-        this.setSize(237,449);
-
+        this.setSize(237,viewHeight);
+        aspectRatio = (double)defaultWidth / (double)defaultHeight;
+        sizeLabel.setText(String.valueOf(defaultWidth)+"x"+String.valueOf(defaultHeight));
+        ratioLabel.setText(String.valueOf(aspectRatio));
+        outWidthField.setText(String.valueOf(defaultWidth));
+        outHeightField.setText(String.valueOf(defaultHeight));
     }
 
     /**
@@ -34,6 +42,15 @@ public class NewJobView2 extends javax.swing.JFrame {
         jEditorPane1 = new javax.swing.JEditorPane();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
+        outputWidthField = new javax.swing.JTextField();
+        outputHeightField = new javax.swing.JTextField();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         JobPanel = new javax.swing.JPanel();
         doneBtn = new javax.swing.JButton();
         previewBtn = new javax.swing.JButton();
@@ -74,7 +91,42 @@ public class NewJobView2 extends javax.swing.JFrame {
         passEncodingCheckBox = new javax.swing.JCheckBox();
         turboFirstPassCheckbox = new javax.swing.JCheckBox();
         picturePanel = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        sizeLabel = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        ratioLabel = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        outWidthField = new javax.swing.JFormattedTextField();
+        outHeightField = new javax.swing.JFormattedTextField();
+        jLabel20 = new javax.swing.JLabel();
+        anamorphicComboBox = new javax.swing.JComboBox();
+        jLabel21 = new javax.swing.JLabel();
+        modulusComboBox = new javax.swing.JComboBox();
+        jLabel22 = new javax.swing.JLabel();
+        automaticRadio = new javax.swing.JRadioButton();
+        customRadio = new javax.swing.JRadioButton();
+        jLabel23 = new javax.swing.JLabel();
+        topField = new javax.swing.JFormattedTextField();
+        jLabel24 = new javax.swing.JLabel();
+        rightField = new javax.swing.JFormattedTextField();
+        jLabel25 = new javax.swing.JLabel();
+        leftField = new javax.swing.JFormattedTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         filterPanel = new javax.swing.JPanel();
+        detelecineCheckbox = new javax.swing.JCheckBox();
+        decombCheckbox = new javax.swing.JCheckBox();
+        deinterfaceCheckbox = new javax.swing.JCheckBox();
+        denoiseCheckbox = new javax.swing.JCheckBox();
+        jLabel32 = new javax.swing.JLabel();
+        deblockingSlider = new javax.swing.JSlider();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
         audioPanel = new javax.swing.JPanel();
         subtitlesPanel = new javax.swing.JPanel();
         chaptersPanel = new javax.swing.JPanel();
@@ -98,6 +150,35 @@ public class NewJobView2 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
         );
+
+        outputWidthField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                outputWidthFieldKeyPressed(evt);
+            }
+        });
+
+        jRadioButton1.setText("jRadioButton1");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 167, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLabel27.setText("Detelecine");
+
+        jLabel28.setText("Decomb");
+
+        jLabel29.setText("Deinterface");
+
+        jLabel30.setText("Denoise");
+
+        jLabel31.setText("Deblocking");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -245,8 +326,8 @@ public class NewJobView2 extends javax.swing.JFrame {
                     .addComponent(choiceComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(angleComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fromLabel)
+                .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(fromLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(toLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -260,7 +341,7 @@ public class NewJobView2 extends javax.swing.JFrame {
                 .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(optionsBtn)
                     .addComponent(advancedToggleButton))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         jLabel5.setText("Frames");
@@ -374,36 +455,255 @@ public class NewJobView2 extends javax.swing.JFrame {
                 .addComponent(passEncodingCheckBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(turboFirstPassCheckbox)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         TabbedPane.addTab("Video", videoPanel);
+
+        jLabel13.setText("Sizing");
+
+        jLabel14.setText("Initial Size :");
+
+        sizeLabel.setText("560 x 320");
+
+        jLabel17.setText("Aspect Ratio :");
+
+        ratioLabel.setText("1.75");
+
+        jLabel18.setText("Ouput Width :");
+
+        jLabel19.setText("Output Height :");
+
+        try {
+            outWidthField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+        outWidthField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                outWidthFieldFocusLost(evt);
+            }
+        });
+
+        try {
+            outHeightField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jLabel20.setText("Anamorphic :");
+
+        anamorphicComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel21.setText("Modulus :");
+
+        modulusComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel22.setText("Cropping");
+
+        automaticRadio.setText("Automatic");
+
+        customRadio.setText("Custom (Pixels)");
+
+        jLabel23.setText("Top");
+
+        jLabel24.setText("Right");
+
+        jLabel25.setText("Left");
+
+        jLabel26.setText("Bottom");
 
         javax.swing.GroupLayout picturePanelLayout = new javax.swing.GroupLayout(picturePanel);
         picturePanel.setLayout(picturePanelLayout);
         picturePanelLayout.setHorizontalGroup(
             picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(picturePanelLayout.createSequentialGroup()
+                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(picturePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addGroup(picturePanelLayout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sizeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel16))
+                            .addGroup(picturePanelLayout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ratioLabel))
+                            .addGroup(picturePanelLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(picturePanelLayout.createSequentialGroup()
+                                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel18)
+                                            .addComponent(jLabel19))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(outWidthField)
+                                            .addComponent(outHeightField)))
+                                    .addGroup(picturePanelLayout.createSequentialGroup()
+                                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel21)
+                                            .addComponent(jLabel20))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(anamorphicComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(modulusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel22)))))
+                    .addGroup(picturePanelLayout.createSequentialGroup()
+                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(picturePanelLayout.createSequentialGroup()
+                                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(picturePanelLayout.createSequentialGroup()
+                                        .addGap(33, 33, 33)
+                                        .addComponent(leftField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, picturePanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel25)
+                                        .addGap(13, 13, 13)))
+                                .addGap(12, 12, 12)
+                                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(topField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel26)))
+                            .addGroup(picturePanelLayout.createSequentialGroup()
+                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)))
+                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(picturePanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rightField, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(picturePanelLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(jLabel24))))
+                    .addComponent(automaticRadio)
+                    .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel23)
+                        .addComponent(customRadio)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         picturePanelLayout.setVerticalGroup(
             picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(picturePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel16)
+                    .addComponent(sizeLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(ratioLabel))
+                .addGap(21, 21, 21)
+                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(outWidthField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(outHeightField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(anamorphicComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(modulusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel22)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(automaticRadio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(customRadio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel23)
+                .addGap(2, 2, 2)
+                .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(picturePanelLayout.createSequentialGroup()
+                        .addComponent(topField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel26))
+                    .addGroup(picturePanelLayout.createSequentialGroup()
+                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel24))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rightField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(leftField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 21, Short.MAX_VALUE))
         );
 
         TabbedPane.addTab("Picture", picturePanel);
+
+        detelecineCheckbox.setText("Detelecine");
+
+        decombCheckbox.setText("Decomb");
+
+        deinterfaceCheckbox.setText("Deinterface");
+
+        denoiseCheckbox.setText("Denoise");
+
+        jLabel32.setText("Deblocking");
+
+        jLabel33.setText("Off");
+
+        jLabel34.setText("Full");
+
+        jCheckBox1.setText("Grayscale Filter");
 
         javax.swing.GroupLayout filterPanelLayout = new javax.swing.GroupLayout(filterPanel);
         filterPanel.setLayout(filterPanelLayout);
         filterPanelLayout.setHorizontalGroup(
             filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(filterPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(denoiseCheckbox)
+                    .addComponent(jLabel32)
+                    .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(filterPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel33)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel34))
+                        .addComponent(deblockingSlider, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCheckBox1)
+                    .addComponent(detelecineCheckbox)
+                    .addComponent(decombCheckbox)
+                    .addComponent(deinterfaceCheckbox))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         filterPanelLayout.setVerticalGroup(
             filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(filterPanelLayout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addComponent(detelecineCheckbox)
+                .addGap(18, 18, 18)
+                .addComponent(decombCheckbox)
+                .addGap(18, 18, 18)
+                .addComponent(deinterfaceCheckbox)
+                .addGap(18, 18, 18)
+                .addComponent(denoiseCheckbox)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(deblockingSlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel34))
+                .addGap(64, 64, 64)
+                .addComponent(jCheckBox1)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
-        TabbedPane.addTab("Filter", filterPanel);
+        TabbedPane.addTab("Filters", filterPanel);
 
         javax.swing.GroupLayout audioPanelLayout = new javax.swing.GroupLayout(audioPanel);
         audioPanel.setLayout(audioPanelLayout);
@@ -413,7 +713,7 @@ public class NewJobView2 extends javax.swing.JFrame {
         );
         audioPanelLayout.setVerticalGroup(
             audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 454, Short.MAX_VALUE)
         );
 
         TabbedPane.addTab("Audio", audioPanel);
@@ -426,7 +726,7 @@ public class NewJobView2 extends javax.swing.JFrame {
         );
         subtitlesPanelLayout.setVerticalGroup(
             subtitlesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 454, Short.MAX_VALUE)
         );
 
         TabbedPane.addTab("Subtitles", subtitlesPanel);
@@ -439,7 +739,7 @@ public class NewJobView2 extends javax.swing.JFrame {
         );
         chaptersPanelLayout.setVerticalGroup(
             chaptersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 454, Short.MAX_VALUE)
         );
 
         TabbedPane.addTab("Chapters", chaptersPanel);
@@ -452,7 +752,7 @@ public class NewJobView2 extends javax.swing.JFrame {
         );
         OptimisePanelLayout.setVerticalGroup(
             OptimisePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGap(0, 454, Short.MAX_VALUE)
         );
 
         TabbedPane.addTab("Optimise", OptimisePanel);
@@ -524,13 +824,13 @@ public class NewJobView2 extends javax.swing.JFrame {
         if(advancedToggleButton.isSelected()){
             advancedPanel.setVisible(true);
             savePanel.setVisible(true);
-            this.setSize(680,449);
+            this.setSize(680,viewHeight);
             advancedToggleButton.setText("Simplify");
         }
         else{
             advancedPanel.setVisible(false);
             savePanel.setVisible(false);
-            this.setSize(237,449);
+            this.setSize(237,viewHeight);
             advancedToggleButton.setText("Advanced");
 
         }
@@ -541,6 +841,20 @@ public class NewJobView2 extends javax.swing.JFrame {
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_doneBtnActionPerformed
+
+    private void outputWidthFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_outputWidthFieldKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_outputWidthFieldKeyPressed
+
+    private void outWidthFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_outWidthFieldFocusLost
+        // TODO add your handling code here:
+        int newWidth = Integer.parseInt(outWidthField.getText());
+        int height = Integer.parseInt(outHeightField.getText());
+        aspectRatio = (double)newWidth / (double)height;
+        
+        sizeLabel.setText(String.valueOf(newWidth)+"x"+String.valueOf(height));
+        ratioLabel.setText(String.valueOf(aspectRatio));
+    }//GEN-LAST:event_outWidthFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -583,27 +897,59 @@ public class NewJobView2 extends javax.swing.JFrame {
     private javax.swing.JTabbedPane TabbedPane;
     private javax.swing.JPanel advancedPanel;
     private javax.swing.JToggleButton advancedToggleButton;
+    private javax.swing.JComboBox anamorphicComboBox;
     private javax.swing.JComboBox angleComboBox;
     private javax.swing.JPanel audioPanel;
+    private javax.swing.JRadioButton automaticRadio;
     private javax.swing.JTextField aveBitRateField;
     private javax.swing.JPanel chaptersPanel;
     private javax.swing.JComboBox choiceComboBox;
     private javax.swing.JRadioButton constantFrameRateRadio;
+    private javax.swing.JRadioButton customRadio;
+    private javax.swing.JSlider deblockingSlider;
+    private javax.swing.JCheckBox decombCheckbox;
+    private javax.swing.JCheckBox deinterfaceCheckbox;
+    private javax.swing.JCheckBox denoiseCheckbox;
     private javax.swing.JLabel destinationLabel;
+    private javax.swing.JCheckBox detelecineCheckbox;
     private javax.swing.JButton doneBtn;
     private javax.swing.JPanel filterPanel;
     private javax.swing.JComboBox frameRateComboBox;
     private javax.swing.JComboBox fromComboBox;
     private javax.swing.JLabel fromLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -611,22 +957,34 @@ public class NewJobView2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JFormattedTextField leftField;
+    private javax.swing.JComboBox modulusComboBox;
     private javax.swing.JButton optionsBtn;
+    private javax.swing.JFormattedTextField outHeightField;
+    private javax.swing.JFormattedTextField outWidthField;
+    private javax.swing.JTextField outputHeightField;
     private javax.swing.JComboBox outputPresetComboBox;
+    private javax.swing.JTextField outputWidthField;
     private javax.swing.JCheckBox passEncodingCheckBox;
     private javax.swing.JPanel picturePanel;
     private javax.swing.JButton previewBtn;
+    private javax.swing.JLabel ratioLabel;
+    private javax.swing.JFormattedTextField rightField;
     private javax.swing.JButton saveBtn;
     private javax.swing.JPanel savePanel;
+    private javax.swing.JLabel sizeLabel;
     private javax.swing.JLabel sourceLabel;
     private javax.swing.JTextField sourceTextField;
     private javax.swing.JPanel subtitlesPanel;
     private javax.swing.JComboBox toComboBox;
     private javax.swing.JLabel toLabel;
+    private javax.swing.JFormattedTextField topField;
     private javax.swing.JCheckBox turboFirstPassCheckbox;
     private javax.swing.JRadioButton variableFrameRateRadio;
     private javax.swing.JComboBox videoFrameComboBox;
