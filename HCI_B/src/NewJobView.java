@@ -1,4 +1,6 @@
 import javax.swing.ButtonGroup;
+import java.awt.Color;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,14 +20,18 @@ public class NewJobView extends javax.swing.JFrame {
     private final int defaultHeight = 320;
     private final int viewHeight = 515;
     private double aspectRatio;
+    private SourceView sv;
     public NewJobView() {
         initComponents();
-        this.setSize(237,viewHeight);
+        this.setSize(250,viewHeight);
+        sv = new SourceView();
+        //Setting the height and width in the picture section for advanced
         aspectRatio = (double)defaultWidth / (double)defaultHeight;
         sizeLabel.setText(String.valueOf(defaultWidth)+"x"+String.valueOf(defaultHeight));
         ratioLabel.setText(String.valueOf(aspectRatio));
         outWidthField.setText(String.valueOf(defaultWidth));
         outHeightField.setText(String.valueOf(defaultHeight));
+        //Add Colour for New Job view
         groupButtons();
     }
     
@@ -89,6 +95,7 @@ public class NewJobView extends javax.swing.JFrame {
         outputPresetComboBox = new javax.swing.JComboBox();
         optionsBtn = new javax.swing.JButton();
         advancedToggleButton = new javax.swing.JToggleButton();
+        jButton2 = new javax.swing.JButton();
         advancedPanel = new javax.swing.JPanel();
         TabbedPane = new javax.swing.JTabbedPane();
         videoPanel = new javax.swing.JPanel();
@@ -215,6 +222,8 @@ public class NewJobView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        JobPanel.setBackground(new java.awt.Color(85, 158, 184));
+
         doneBtn.setText("Done");
         doneBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -265,6 +274,13 @@ public class NewJobView extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("File");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout JobPanelLayout = new javax.swing.GroupLayout(JobPanel);
         JobPanel.setLayout(JobPanelLayout);
         JobPanelLayout.setHorizontalGroup(
@@ -309,7 +325,7 @@ public class NewJobView extends javax.swing.JFrame {
                     .addGroup(JobPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(optionsBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(advancedToggleButton))
                     .addGroup(JobPanelLayout.createSequentialGroup()
                         .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,20 +334,24 @@ public class NewJobView extends javax.swing.JFrame {
                                 .addComponent(destinationLabel))
                             .addGroup(JobPanelLayout.createSequentialGroup()
                                 .addGap(17, 17, 17)
-                                .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(JobPanelLayout.createSequentialGroup()
                                         .addComponent(doneBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(previewBtn))
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addComponent(sourceTextField)))
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(JobPanelLayout.createSequentialGroup()
                                 .addGap(64, 64, 64)
                                 .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(outputPresetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4))))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(JobPanelLayout.createSequentialGroup()
+                .addComponent(sourceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         JobPanelLayout.setVerticalGroup(
             JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +363,9 @@ public class NewJobView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(sourceLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sourceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sourceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
                 .addComponent(destinationLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -374,7 +396,7 @@ public class NewJobView extends javax.swing.JFrame {
                 .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(optionsBtn)
                     .addComponent(advancedToggleButton))
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         jLabel5.setText("Frames");
@@ -787,6 +809,8 @@ public class NewJobView extends javax.swing.JFrame {
 
         TabbedPane.addTab("Optimise", OptimisePanel);
 
+        savePanel.setBackground(new java.awt.Color(85, 158, 184));
+
         saveBtn.setText(" Save ");
 
         javax.swing.GroupLayout savePanelLayout = new javax.swing.GroupLayout(savePanel);
@@ -794,14 +818,14 @@ public class NewJobView extends javax.swing.JFrame {
         savePanelLayout.setHorizontalGroup(
             savePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, savePanelLayout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(34, 34, 34))
         );
         savePanelLayout.setVerticalGroup(
             savePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, savePanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -859,7 +883,7 @@ public class NewJobView extends javax.swing.JFrame {
         else{
             advancedPanel.setVisible(false);
             savePanel.setVisible(false);
-            this.setSize(237,viewHeight);
+            this.setSize(250,viewHeight);
             advancedToggleButton.setText("Advanced");
 
         }
@@ -884,6 +908,12 @@ public class NewJobView extends javax.swing.JFrame {
         sizeLabel.setText(String.valueOf(newWidth)+"x"+String.valueOf(height));
         ratioLabel.setText(String.valueOf(aspectRatio));
     }//GEN-LAST:event_outWidthFieldFocusLost
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        sv.setVisible(true);      
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -948,6 +978,7 @@ public class NewJobView extends javax.swing.JFrame {
     private javax.swing.JComboBox fromComboBox;
     private javax.swing.JLabel fromLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JEditorPane jEditorPane1;
