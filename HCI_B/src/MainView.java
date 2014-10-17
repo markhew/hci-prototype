@@ -1,7 +1,10 @@
 
+import java.awt.Color;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
-import java.awt.Color;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,7 +27,8 @@ public class MainView extends javax.swing.JFrame {
      */
     public MainView() {
         initComponents();
-
+        addJobBtn.setBorderPainted(false);
+        this.setResizable(false);
         // init progress bar
         jProgressBar2.setStringPainted(true);
         jProgressBar2.setString("Press start to transcode");
@@ -38,6 +42,8 @@ public class MainView extends javax.swing.JFrame {
         // add event listener to watch this window position
         //this.addComponentListener(new MainViewWindowListener());
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,7 +55,7 @@ public class MainView extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanel = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        addJobBtn = new javax.swing.JButton();
         btnViewQueue = new javax.swing.JButton();
         SettingsBtn = new javax.swing.JButton();
         ActivityLogBtn = new javax.swing.JButton();
@@ -59,41 +65,44 @@ public class MainView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainPanel.setBackground(new java.awt.Color(85, 158, 184));
+        mainPanel.setBackground(new java.awt.Color(70, 141, 169));
 
-        jButton1.setText("Add Job");
-        jButton1.setActionCommand("AddQueue");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addJobBtn.setForeground(new java.awt.Color(255, 255, 255));
+        addJobBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AddJob.png"))); // NOI18N
+        addJobBtn.setActionCommand("AddQueue");
+        addJobBtn.setBorderPainted(false);
+        addJobBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addJobBtnActionPerformed(evt);
             }
         });
 
-        btnViewQueue.setText("View Queue");
+        btnViewQueue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ViewQueue.png"))); // NOI18N
         btnViewQueue.setActionCommand("ViewQueue");
+        btnViewQueue.setBorderPainted(false);
         btnViewQueue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewQueueActionPerformed(evt);
             }
         });
 
-        SettingsBtn.setText("Settings");
+        SettingsBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Settings.png"))); // NOI18N
         SettingsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SettingsBtnActionPerformed(evt);
             }
         });
 
-        ActivityLogBtn.setText("Activity Log");
+        ActivityLogBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Actitvity Log.png"))); // NOI18N
         ActivityLogBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ActivityLogBtnActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Help");
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Help.png"))); // NOI18N
 
-        jButton6.setText("Start Queue");
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Start Queue.png"))); // NOI18N
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
@@ -105,35 +114,35 @@ public class MainView extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ActivityLogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SettingsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(mainPanelLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnViewQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(17, 17, 17)
+                                .addComponent(addJobBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnViewQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ActivityLogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(73, 73, 73)
+                        .addGap(65, 65, 65)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnViewQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(addJobBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addComponent(SettingsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ActivityLogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jProgressBar2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -141,24 +150,24 @@ public class MainView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addJobBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addJobBtnActionPerformed
         NewJobView nj = new NewJobView();
         
         nj.setVisible(true);
         nj.setResizable(false);//Dont allow the user to resize the window
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addJobBtnActionPerformed
 
     private void btnViewQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewQueueActionPerformed
         // show the queue window
@@ -247,8 +256,8 @@ public class MainView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActivityLogBtn;
     private javax.swing.JButton SettingsBtn;
+    private javax.swing.JButton addJobBtn;
     private javax.swing.JButton btnViewQueue;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JProgressBar jProgressBar2;
