@@ -1,4 +1,6 @@
 import javax.swing.ButtonGroup;
+import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,6 +17,8 @@ public class NewJobView extends javax.swing.JFrame {
     /**
      * Creates new form NewJobView
      */
+    private ArrayList<ImageIcon> selectedTabs;
+    private ArrayList<ImageIcon> nonSelectedTabs;
     private final int defaultWidth = 560;
     private final int defaultHeight = 320;
     private final int viewHeight = 570;
@@ -26,6 +30,7 @@ public class NewJobView extends javax.swing.JFrame {
     public NewJobView(MainView parent) {
         initComponents();
         this.setResizable(false);
+        setImages();
         addCustomization();
         this.setSize(viewWidth,viewHeight);
         this.parent = parent;
@@ -46,6 +51,30 @@ public class NewJobView extends javax.swing.JFrame {
         advancedToggleButton.setContentAreaFilled(false);
         optionsBtn.setContentAreaFilled(false);
         
+    }
+    
+    private void setImages(){
+        //Setting the index for the image icons is vital as image will match the tab
+        selectedTabs = new ArrayList<ImageIcon>();
+        nonSelectedTabs = new ArrayList<ImageIcon>();
+        
+        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/VideoTab.png")));
+        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/PictureTab.png")));
+        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/AudioTab.png")));
+        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/SubtitlesTab.png")));
+        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/ChaptersTab.png")));    
+        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/OptimiseTab.png")));
+        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/FiltersTab.png")));
+
+        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/VideoTab2.png")));
+        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/PictureTab2.png")));
+        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/AudioTab2.png")));
+        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/SubtitlesTab2.png")));
+        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/ChaptersTab2.png")));    
+        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/OptimiseTab2.png")));
+        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/FiltersTab2.png")));
+
+
     }
     
     
@@ -504,6 +533,11 @@ public class NewJobView extends javax.swing.JFrame {
         TabbedPane.setToolTipText("");
         TabbedPane.setOpaque(true);
         TabbedPane.setSize(new java.awt.Dimension(0, 50));
+        TabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                TabbedPaneStateChanged(evt);
+            }
+        });
 
         videoPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -621,7 +655,7 @@ public class NewJobView extends javax.swing.JFrame {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
-        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/VideoTab.png")), videoPanel); // NOI18N
+        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/VideoTab2.png")), videoPanel); // NOI18N
 
         picturePanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -1050,6 +1084,23 @@ public class NewJobView extends javax.swing.JFrame {
         this.dispose();
         this.parent.resetToggleBtn();
     }//GEN-LAST:event_doneBtnActionPerformed
+
+    private void TabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneStateChanged
+        // TODO add your handling code here:
+        int tabCount = TabbedPane.getTabCount();
+        
+        if(tabCount > 1){
+            int selectedTab = TabbedPane.getSelectedIndex();
+            for(int i=0; i< tabCount;i++){
+                if(i == selectedTab){
+                    TabbedPane.setIconAt(i, selectedTabs.get(i));
+                }
+                else{
+                    TabbedPane.setIconAt(i, nonSelectedTabs.get(i));
+                }
+            }
+        }
+    }//GEN-LAST:event_TabbedPaneStateChanged
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
