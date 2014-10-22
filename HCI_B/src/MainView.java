@@ -79,7 +79,7 @@ public class MainView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainPanel.setBackground(new java.awt.Color(70, 141, 169));
+        mainPanel.setBackground(new java.awt.Color(63, 160, 186));
 
         btnViewQueue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ViewQueue.png"))); // NOI18N
         btnViewQueue.setActionCommand("ViewQueue");
