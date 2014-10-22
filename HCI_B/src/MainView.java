@@ -24,7 +24,8 @@ public class MainView extends javax.swing.JFrame {
     private NewJobView nj;
     private ImageIcon addJob;
     private ImageIcon cancelJob;
-    
+    private ImageIcon viewQueue;
+    private ImageIcon hideQueue;
 
     /**
      * Creates new form MainView
@@ -51,6 +52,9 @@ public class MainView extends javax.swing.JFrame {
     private void setImages(){
         addJob = new ImageIcon(getClass().getResource("/Images/AddJob.png"));
         cancelJob = new ImageIcon(getClass().getResource("/Images/CancelJob.png"));
+        viewQueue = new ImageIcon(getClass().getResource("/Images/ViewQueue.png"));
+        hideQueue = new ImageIcon(getClass().getResource("/Images/HideQueue.png"));
+
     }
     
     
@@ -102,7 +106,7 @@ public class MainView extends javax.swing.JFrame {
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Help.png"))); // NOI18N
 
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Start Queue.png"))); // NOI18N
+        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/StartQueue.png"))); // NOI18N
 
         jobToggleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AddJob.png"))); // NOI18N
         jobToggleBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -172,8 +176,10 @@ public class MainView extends javax.swing.JFrame {
         // show the queue window
         if (queueView.isShowing()) {
             queueView.hide();
+            btnViewQueue.setIcon(viewQueue);
         } else {
             queueView.show();
+            btnViewQueue.setIcon(hideQueue);
         }
     }//GEN-LAST:event_btnViewQueueActionPerformed
 
