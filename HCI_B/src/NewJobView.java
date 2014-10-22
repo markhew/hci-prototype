@@ -1,5 +1,4 @@
 import javax.swing.ButtonGroup;
-import java.awt.Color;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -650,7 +649,9 @@ public class NewJobView extends javax.swing.JFrame {
                 .addContainerGap(136, Short.MAX_VALUE))
         );
 
-        TabbedPane.addTab("Video", videoPanel);
+        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/VideoTab.png")), videoPanel); // NOI18N
+
+        picturePanel.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel13.setText("Sizing");
 
@@ -831,6 +832,8 @@ public class NewJobView extends javax.swing.JFrame {
 
         TabbedPane.addTab("Picture", picturePanel);
 
+        audioPanel.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout audioPanelLayout = new javax.swing.GroupLayout(audioPanel);
         audioPanel.setLayout(audioPanelLayout);
         audioPanelLayout.setHorizontalGroup(
@@ -857,6 +860,8 @@ public class NewJobView extends javax.swing.JFrame {
 
         TabbedPane.addTab("Subtitles", subtitlesPanel);
 
+        chaptersPanel.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout chaptersPanelLayout = new javax.swing.GroupLayout(chaptersPanel);
         chaptersPanel.setLayout(chaptersPanelLayout);
         chaptersPanelLayout.setHorizontalGroup(
@@ -870,6 +875,8 @@ public class NewJobView extends javax.swing.JFrame {
 
         TabbedPane.addTab("Chapters", chaptersPanel);
 
+        OptimisePanel.setBackground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout OptimisePanelLayout = new javax.swing.GroupLayout(OptimisePanel);
         OptimisePanel.setLayout(OptimisePanelLayout);
         OptimisePanelLayout.setHorizontalGroup(
@@ -882,6 +889,8 @@ public class NewJobView extends javax.swing.JFrame {
         );
 
         TabbedPane.addTab("Optimise", OptimisePanel);
+
+        filterPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         detelecineCheckbox.setText("Detelecine");
 
@@ -951,9 +960,9 @@ public class NewJobView extends javax.swing.JFrame {
         advancedPanelLayout.setHorizontalGroup(
             advancedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(advancedPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(TabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
         advancedPanelLayout.setVerticalGroup(
             advancedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

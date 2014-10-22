@@ -22,12 +22,18 @@ public class MainView extends javax.swing.JFrame {
     private ActivityLogView alv;
     private static boolean queueShowing = false;
     private NewJobView nj;
+    private ImageIcon addJob;
+    private ImageIcon addJob2;
+    private ImageIcon cancelJob;
+    private ImageIcon cancelJob2;
+    
 
     /**
      * Creates new form MainView
      */
     public MainView() {
         initComponents();
+        setImages();
         jobToggleBtn.setBorderPainted(false);
         this.setResizable(false);
         // init progress bar
@@ -42,6 +48,13 @@ public class MainView extends javax.swing.JFrame {
         
         // add event listener to watch this window position
         //this.addComponentListener(new MainViewWindowListener());
+    }
+    
+    private void setImages(){
+        addJob = new ImageIcon(getClass().getResource("/Images/AddJob.png"));
+        addJob2 = new ImageIcon(getClass().getResource("/Images/AddJob2.png"));
+        cancelJob = new ImageIcon(getClass().getResource("/Images/CancelJob.png"));
+        cancelJob2 = new ImageIcon(getClass().getResource("/Images/CancelJob2.png"));
     }
     
     
@@ -96,6 +109,14 @@ public class MainView extends javax.swing.JFrame {
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Start Queue.png"))); // NOI18N
 
         jobToggleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AddJob.png"))); // NOI18N
+        jobToggleBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jobToggleBtnMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jobToggleBtnMouseEntered(evt);
+            }
+        });
         jobToggleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jobToggleBtnActionPerformed(evt);
@@ -164,10 +185,8 @@ public class MainView extends javax.swing.JFrame {
     private void btnViewQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewQueueActionPerformed
         // show the queue window
         if (queueView.isShowing()) {
-            btnViewQueue.setText("View Queue");
             queueView.hide();
         } else {
-            btnViewQueue.setText("Hide Queue");
             queueView.show();
         }
     }//GEN-LAST:event_btnViewQueueActionPerformed
@@ -193,20 +212,40 @@ public class MainView extends javax.swing.JFrame {
         if (jobToggleBtn.isSelected()){
             nj = new NewJobView(this);
             nj.setVisible(true);
-            jobToggleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/CancelJob.png"))); // NOI18N
+            jobToggleBtn.setIcon(cancelJob); // NOI18N
         }
         else{
             nj.setVisible(false);
             nj.dispose();
-            jobToggleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AddJob.png"))); // NOI18N
+            jobToggleBtn.setIcon(addJob); // NOI18N
 
         }
     }//GEN-LAST:event_jobToggleBtnActionPerformed
 
+    private void jobToggleBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jobToggleBtnMouseEntered
+        // TODO add your handling code here:
+        if(!jobToggleBtn.isSelected()){
+            this.jobToggleBtn.setIcon(addJob2); // NOI18N
+        }
+        else{
+            this.jobToggleBtn.setIcon(cancelJob2);
+        }
+    }//GEN-LAST:event_jobToggleBtnMouseEntered
+
+    private void jobToggleBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jobToggleBtnMouseExited
+        // TODO add your handling code here:
+        if(!jobToggleBtn.isSelected()){
+            this.jobToggleBtn.setIcon(addJob); // NOI18N
+        }
+        else{
+            this.jobToggleBtn.setIcon(cancelJob);
+        }
+    }//GEN-LAST:event_jobToggleBtnMouseExited
+
     //Changes the new job toggle icon back to "Add Job" from cancel
     public void resetToggleBtn(){
         this.jobToggleBtn.setSelected(false);
-        this.jobToggleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AddJob.png"))); // NOI18N
+        this.jobToggleBtn.setIcon(addJob); // NOI18N
     }
     /**
      * @param args the command line arguments
