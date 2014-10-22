@@ -23,9 +23,7 @@ public class MainView extends javax.swing.JFrame {
     private static boolean queueShowing = false;
     private NewJobView nj;
     private ImageIcon addJob;
-    private ImageIcon addJob2;
     private ImageIcon cancelJob;
-    private ImageIcon cancelJob2;
     
 
     /**
@@ -52,9 +50,7 @@ public class MainView extends javax.swing.JFrame {
     
     private void setImages(){
         addJob = new ImageIcon(getClass().getResource("/Images/AddJob.png"));
-        addJob2 = new ImageIcon(getClass().getResource("/Images/AddJob2.png"));
         cancelJob = new ImageIcon(getClass().getResource("/Images/CancelJob.png"));
-        cancelJob2 = new ImageIcon(getClass().getResource("/Images/CancelJob2.png"));
     }
     
     
