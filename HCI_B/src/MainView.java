@@ -109,14 +109,6 @@ public class MainView extends javax.swing.JFrame {
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Start Queue.png"))); // NOI18N
 
         jobToggleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AddJob.png"))); // NOI18N
-        jobToggleBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jobToggleBtnMouseExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jobToggleBtnMouseEntered(evt);
-            }
-        });
         jobToggleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jobToggleBtnActionPerformed(evt);
@@ -154,7 +146,7 @@ public class MainView extends javax.swing.JFrame {
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jobToggleBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnViewQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(SettingsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(ActivityLogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,9 +166,7 @@ public class MainView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 6, Short.MAX_VALUE)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -221,26 +211,6 @@ public class MainView extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jobToggleBtnActionPerformed
-
-    private void jobToggleBtnMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jobToggleBtnMouseEntered
-        // TODO add your handling code here:
-        if(!jobToggleBtn.isSelected()){
-            this.jobToggleBtn.setIcon(addJob2); // NOI18N
-        }
-        else{
-            this.jobToggleBtn.setIcon(cancelJob2);
-        }
-    }//GEN-LAST:event_jobToggleBtnMouseEntered
-
-    private void jobToggleBtnMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jobToggleBtnMouseExited
-        // TODO add your handling code here:
-        if(!jobToggleBtn.isSelected()){
-            this.jobToggleBtn.setIcon(addJob); // NOI18N
-        }
-        else{
-            this.jobToggleBtn.setIcon(cancelJob);
-        }
-    }//GEN-LAST:event_jobToggleBtnMouseExited
 
     //Changes the new job toggle icon back to "Add Job" from cancel
     public void resetToggleBtn(){

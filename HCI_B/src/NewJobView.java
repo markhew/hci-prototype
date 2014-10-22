@@ -19,7 +19,7 @@ public class NewJobView extends javax.swing.JFrame {
     private final int defaultHeight = 320;
     private final int viewHeight = 570;
     private final int viewWidth = 230;
-    private final int viewWidthExtended = 700;
+    private final int viewWidthExtended = 680;
     private double aspectRatio;
     private SourceView sv;
     private MainView parent;
@@ -93,7 +93,6 @@ public class NewJobView extends javax.swing.JFrame {
         menu2 = new java.awt.Menu();
         popupMenu1 = new java.awt.PopupMenu();
         JobPanel = new javax.swing.JPanel();
-        saveBtn = new javax.swing.JButton();
         jobPanel = new javax.swing.JPanel();
         doneBtn = new javax.swing.JButton();
         previewBtn = new javax.swing.JButton();
@@ -118,7 +117,6 @@ public class NewJobView extends javax.swing.JFrame {
         advancedToggleButton = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
         optionsBtn = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
         advancedPanel = new javax.swing.JPanel();
         TabbedPane = new javax.swing.JTabbedPane();
         videoPanel = new javax.swing.JPanel();
@@ -179,6 +177,8 @@ public class NewJobView extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
+        saveBtn = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -252,13 +252,9 @@ public class NewJobView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(81, 158, 184));
 
-        JobPanel.setBackground(new java.awt.Color(85, 158, 184));
+        JobPanel.setBackground(new java.awt.Color(63, 160, 186));
 
-        saveBtn.setBackground(new java.awt.Color(81, 158, 184));
-        saveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Save.png"))); // NOI18N
-        saveBtn.setBorderPainted(false);
-
-        jobPanel.setBackground(new java.awt.Color(81, 158, 184));
+        jobPanel.setBackground(new java.awt.Color(63, 160, 186));
         jobPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         jobPanel.setName(""); // NOI18N
 
@@ -498,36 +494,11 @@ public class NewJobView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout JobPanelLayout = new javax.swing.GroupLayout(JobPanel);
-        JobPanel.setLayout(JobPanelLayout);
-        JobPanelLayout.setHorizontalGroup(
-            JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JobPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jobPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
-        JobPanelLayout.setVerticalGroup(
-            JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JobPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(JobPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jobPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-
-        jPanel5.setBackground(new java.awt.Color(81, 158, 184));
-
-        advancedPanel.setBackground(new java.awt.Color(81, 158, 184));
+        advancedPanel.setBackground(new java.awt.Color(63, 160, 186));
         advancedPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
         advancedPanel.setPreferredSize(new java.awt.Dimension(375, 530));
 
-        TabbedPane.setBackground(new java.awt.Color(81, 158, 184));
+        TabbedPane.setBackground(new java.awt.Color(63, 160, 186));
         TabbedPane.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         TabbedPane.setToolTipText("");
         TabbedPane.setOpaque(true);
@@ -646,7 +617,7 @@ public class NewJobView extends javax.swing.JFrame {
                 .addComponent(passEncodingCheckBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(turboFirstPassCheckbox)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/VideoTab.png")), videoPanel); // NOI18N
@@ -771,7 +742,7 @@ public class NewJobView extends javax.swing.JFrame {
                     .addGroup(picturePanelLayout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(jLabel23)))
-                .addGap(0, 88, Short.MAX_VALUE))
+                .addGap(0, 172, Short.MAX_VALUE))
         );
         picturePanelLayout.setVerticalGroup(
             picturePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -830,7 +801,7 @@ public class NewJobView extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        TabbedPane.addTab("Picture", picturePanel);
+        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/PictureTab.png")), picturePanel); // NOI18N
 
         audioPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -838,27 +809,29 @@ public class NewJobView extends javax.swing.JFrame {
         audioPanel.setLayout(audioPanelLayout);
         audioPanelLayout.setHorizontalGroup(
             audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 385, Short.MAX_VALUE)
         );
         audioPanelLayout.setVerticalGroup(
             audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
 
-        TabbedPane.addTab("Audio", audioPanel);
+        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/AudioTab.png")), audioPanel); // NOI18N
+
+        subtitlesPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout subtitlesPanelLayout = new javax.swing.GroupLayout(subtitlesPanel);
         subtitlesPanel.setLayout(subtitlesPanelLayout);
         subtitlesPanelLayout.setHorizontalGroup(
             subtitlesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 385, Short.MAX_VALUE)
         );
         subtitlesPanelLayout.setVerticalGroup(
             subtitlesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
 
-        TabbedPane.addTab("Subtitles", subtitlesPanel);
+        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/SubtitlesTab.png")), subtitlesPanel); // NOI18N
 
         chaptersPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -866,14 +839,14 @@ public class NewJobView extends javax.swing.JFrame {
         chaptersPanel.setLayout(chaptersPanelLayout);
         chaptersPanelLayout.setHorizontalGroup(
             chaptersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 385, Short.MAX_VALUE)
         );
         chaptersPanelLayout.setVerticalGroup(
             chaptersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
 
-        TabbedPane.addTab("Chapters", chaptersPanel);
+        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/ChaptersTab.png")), chaptersPanel); // NOI18N
 
         OptimisePanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -881,14 +854,14 @@ public class NewJobView extends javax.swing.JFrame {
         OptimisePanel.setLayout(OptimisePanelLayout);
         OptimisePanelLayout.setHorizontalGroup(
             OptimisePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 301, Short.MAX_VALUE)
+            .addGap(0, 385, Short.MAX_VALUE)
         );
         OptimisePanelLayout.setVerticalGroup(
             OptimisePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGap(0, 448, Short.MAX_VALUE)
         );
 
-        TabbedPane.addTab("Optimise", OptimisePanel);
+        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/OptimiseTab.png")), OptimisePanel); // NOI18N
 
         filterPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -927,7 +900,7 @@ public class NewJobView extends javax.swing.JFrame {
                     .addComponent(detelecineCheckbox)
                     .addComponent(decombCheckbox)
                     .addComponent(deinterfaceCheckbox))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(135, Short.MAX_VALUE))
         );
         filterPanelLayout.setVerticalGroup(
             filterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -950,10 +923,14 @@ public class NewJobView extends javax.swing.JFrame {
                     .addComponent(jLabel34))
                 .addGap(64, 64, 64)
                 .addComponent(jCheckBox1)
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
-        TabbedPane.addTab("Filters", filterPanel);
+        TabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/FiltersTab.png")), filterPanel); // NOI18N
+
+        saveBtn.setBackground(new java.awt.Color(81, 158, 184));
+        saveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Save.png"))); // NOI18N
+        saveBtn.setBorderPainted(false);
 
         javax.swing.GroupLayout advancedPanelLayout = new javax.swing.GroupLayout(advancedPanel);
         advancedPanel.setLayout(advancedPanelLayout);
@@ -961,32 +938,55 @@ public class NewJobView extends javax.swing.JFrame {
             advancedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(advancedPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(TabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addGroup(advancedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                    .addGroup(advancedPanelLayout.createSequentialGroup()
+                        .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         advancedPanelLayout.setVerticalGroup(
             advancedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, advancedPanelLayout.createSequentialGroup()
+            .addGroup(advancedPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(TabbedPane)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        javax.swing.GroupLayout JobPanelLayout = new javax.swing.GroupLayout(JobPanel);
+        JobPanel.setLayout(JobPanelLayout);
+        JobPanelLayout.setHorizontalGroup(
+            JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JobPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jobPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(advancedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 445, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        JobPanelLayout.setVerticalGroup(
+            JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JobPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(JobPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(advancedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
+                    .addComponent(jobPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        jPanel5.setBackground(new java.awt.Color(63, 160, 186));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(advancedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(advancedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 558, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
