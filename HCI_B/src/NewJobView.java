@@ -25,6 +25,7 @@ public class NewJobView extends javax.swing.JFrame {
     private MainView parent;
     public NewJobView(MainView parent) {
         initComponents();
+        this.setResizable(false);
         addCustomization();
         this.setSize(viewWidth,viewHeight);
         this.parent = parent;

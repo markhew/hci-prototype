@@ -1,3 +1,4 @@
+import javax.swing.ImageIcon;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,13 +9,28 @@
  *
  * @author markhew
  */
+
 public class ActivityLogView extends javax.swing.JFrame {
 
+    private ImageIcon scan;
+    private ImageIcon scan2;
+    private ImageIcon encode;
+    private ImageIcon encode2;
     /**
      * Creates new form ActivityLogView
      */
     public ActivityLogView() {
         initComponents();
+        setImages();
+        this.setSize(678, 562);
+        this.setResizable(false);
+    }
+    
+    private void setImages(){
+        scan = new ImageIcon(getClass().getResource("/Images/ScanLog.png"));
+        scan2 = new ImageIcon(getClass().getResource("/Images/ScanLog2.png"));
+        encode = new ImageIcon(getClass().getResource("/Images/EncodeLog.png"));
+        encode2 = new ImageIcon(getClass().getResource("/Images/EncodeLog2.png"));
     }
 
     /**
@@ -65,61 +81,76 @@ public class ActivityLogView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(85, 158, 184));
 
-        activityLogPanel1.setBackground(new java.awt.Color(85, 158, 184));
+        activityLogPanel1.setBackground(new java.awt.Color(63, 160, 186));
+
+        tabbedPane.setBackground(new java.awt.Color(255, 255, 255));
+        tabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabbedPaneStateChanged(evt);
+            }
+        });
+
+        scanTab.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout scanTabLayout = new javax.swing.GroupLayout(scanTab);
         scanTab.setLayout(scanTabLayout);
         scanTabLayout.setHorizontalGroup(
             scanTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
+            .addGap(0, 631, Short.MAX_VALUE)
         );
         scanTabLayout.setVerticalGroup(
             scanTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 178, Short.MAX_VALUE)
+            .addGap(0, 419, Short.MAX_VALUE)
         );
 
-        tabbedPane.addTab("Scan Log", scanTab);
+        tabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/ScanLog2.png")), scanTab); // NOI18N
+
+        encodeLogTab.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout encodeLogTabLayout = new javax.swing.GroupLayout(encodeLogTab);
         encodeLogTab.setLayout(encodeLogTabLayout);
         encodeLogTabLayout.setHorizontalGroup(
             encodeLogTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 343, Short.MAX_VALUE)
+            .addGap(0, 631, Short.MAX_VALUE)
         );
         encodeLogTabLayout.setVerticalGroup(
             encodeLogTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 178, Short.MAX_VALUE)
+            .addGap(0, 419, Short.MAX_VALUE)
         );
 
-        tabbedPane.addTab("Encode Log", encodeLogTab);
+        tabbedPane.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/EncodeLog.png")), encodeLogTab); // NOI18N
 
-        clipBoardBtn.setText("Copy to Clipboard");
+        clipBoardBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Clipboard.png"))); // NOI18N
+        clipBoardBtn.setBorder(null);
+        clipBoardBtn.setBorderPainted(false);
 
-        logDirectoryBtn.setText("Open Log Directory");
+        logDirectoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/OpenLog.png"))); // NOI18N
+        logDirectoryBtn.setBorder(null);
+        logDirectoryBtn.setBorderPainted(false);
 
         javax.swing.GroupLayout activityLogPanel1Layout = new javax.swing.GroupLayout(activityLogPanel1);
         activityLogPanel1.setLayout(activityLogPanel1Layout);
         activityLogPanel1Layout.setHorizontalGroup(
             activityLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, activityLogPanel1Layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
-                .addGroup(activityLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+            .addGroup(activityLogPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(activityLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tabbedPane, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(activityLogPanel1Layout.createSequentialGroup()
-                        .addComponent(clipBoardBtn)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(logDirectoryBtn))
-                    .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20))
+                        .addComponent(clipBoardBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(logDirectoryBtn)
+                        .addContainerGap())))
         );
         activityLogPanel1Layout.setVerticalGroup(
             activityLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(activityLogPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(activityLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(clipBoardBtn)
-                    .addComponent(logDirectoryBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(activityLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(clipBoardBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(logDirectoryBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tabbedPane)
                 .addContainerGap())
         );
 
@@ -129,24 +160,41 @@ public class ActivityLogView extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(activityLogPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(164, 164, 164)
-                .addComponent(jLabel2)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(activityLogPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(278, 278, 278))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(activityLogPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(activityLogPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
+        // TODO add your handling code here:
+        if(tabbedPane.getTabCount() > 1){
+            if(tabbedPane.getSelectedIndex() == 0){
+                tabbedPane.setIconAt(0, scan2);
+                tabbedPane.setIconAt(1, encode);
+            }
+            else{
+                tabbedPane.setIconAt(0,scan);
+                tabbedPane.setIconAt(1,encode2);
+            }
+        }
+    }//GEN-LAST:event_tabbedPaneStateChanged
 
     /**
      * @param args the command line arguments
