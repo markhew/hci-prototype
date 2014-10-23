@@ -279,8 +279,13 @@ public class NewJobView extends javax.swing.JFrame {
 
         popupMenu1.setLabel("popupMenu1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(81, 158, 184));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         JobPanel.setBackground(new java.awt.Color(63, 160, 186));
 
@@ -332,16 +337,12 @@ public class NewJobView extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Angle");
 
-        choiceComboBox.setBackground(new java.awt.Color(255, 255, 255));
         choiceComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Chapters", "Seconds", "Frames" }));
 
-        angleComboBox.setBackground(new java.awt.Color(255, 255, 255));
         angleComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1" }));
 
-        fromComboBox.setBackground(new java.awt.Color(255, 255, 255));
         fromComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1" }));
 
-        toComboBox.setBackground(new java.awt.Color(255, 255, 255));
         toComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1" }));
 
         fromLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -353,7 +354,6 @@ public class NewJobView extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Output Preset");
 
-        outputPresetComboBox.setBackground(new java.awt.Color(255, 255, 255));
         outputPresetComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MP4", "MKV" }));
 
         jPanel3.setBackground(new java.awt.Color(99, 162, 185));
@@ -532,7 +532,6 @@ public class NewJobView extends javax.swing.JFrame {
         TabbedPane.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         TabbedPane.setToolTipText("");
         TabbedPane.setOpaque(true);
-        TabbedPane.setSize(new java.awt.Dimension(0, 50));
         TabbedPane.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 TabbedPaneStateChanged(evt);
@@ -974,7 +973,7 @@ public class NewJobView extends javax.swing.JFrame {
             .addGroup(advancedPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(advancedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 431, Short.MAX_VALUE)
+                    .addComponent(TabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 419, Short.MAX_VALUE)
                     .addGroup(advancedPanelLayout.createSequentialGroup()
                         .addComponent(saveBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -1101,6 +1100,12 @@ public class NewJobView extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_TabbedPaneStateChanged
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.parent.resetToggleBtn();
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

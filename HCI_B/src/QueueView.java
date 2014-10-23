@@ -69,8 +69,13 @@ public class QueueView extends JFrame {
         btnEditQueueItem = new javax.swing.JButton();
         btnRemoveQueueItem = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(63, 160, 186));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         HeaderPanel.setBackground(new java.awt.Color(63, 160, 186));
 
@@ -307,6 +312,12 @@ public class QueueView extends JFrame {
     private void btnClearQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearQueueActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClearQueueActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        // TODO add your handling code here:
+        this.parent.resetQueueBtn();
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments

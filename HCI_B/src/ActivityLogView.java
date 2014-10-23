@@ -78,7 +78,7 @@ public class ActivityLogView extends javax.swing.JFrame {
                 .addContainerGap(207, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(85, 158, 184));
 
         activityLogPanel1.setBackground(new java.awt.Color(63, 160, 186));

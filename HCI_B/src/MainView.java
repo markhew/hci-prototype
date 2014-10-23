@@ -219,6 +219,12 @@ public class MainView extends javax.swing.JFrame {
         this.jobToggleBtn.setSelected(false);
         this.jobToggleBtn.setIcon(addJob); // NOI18N
     }
+    
+    public void resetQueueBtn() {
+        this.btnViewQueue.setSelected(false);
+        this.btnViewQueue.setIcon(viewQueue);
+    }
+    
     /**
      * @param args the command line arguments
      */
