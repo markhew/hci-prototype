@@ -1,6 +1,9 @@
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import javax.swing.ButtonGroup;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -28,6 +31,8 @@ public class NewJobView extends javax.swing.JFrame {
     private SourceView sv;
     private MainView parent;
     public NewJobView(MainView parent) {
+        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
+        this.setIconImage(icon);
         initComponents();
         this.setResizable(false);
         setImages();
@@ -303,6 +308,11 @@ public class NewJobView extends javax.swing.JFrame {
 
         previewBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Preview.png"))); // NOI18N
         previewBtn.setBorderPainted(false);
+        previewBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                previewBtnActionPerformed(evt);
+            }
+        });
 
         sourceLabel.setForeground(new java.awt.Color(255, 255, 255));
         sourceLabel.setText("Source");
@@ -965,6 +975,11 @@ public class NewJobView extends javax.swing.JFrame {
         saveBtn.setBackground(new java.awt.Color(81, 158, 184));
         saveBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Save.png"))); // NOI18N
         saveBtn.setBorderPainted(false);
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout advancedPanelLayout = new javax.swing.GroupLayout(advancedPanel);
         advancedPanel.setLayout(advancedPanelLayout);
@@ -1073,8 +1088,8 @@ public class NewJobView extends javax.swing.JFrame {
 
     private void srcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srcBtnActionPerformed
         // TODO add your handling code here:
-
         sv.setVisible(true);
+        
     }//GEN-LAST:event_srcBtnActionPerformed
 
     private void doneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneBtnActionPerformed
@@ -1106,6 +1121,16 @@ public class NewJobView extends javax.swing.JFrame {
         this.parent.resetToggleBtn();
         this.dispose();
     }//GEN-LAST:event_formWindowClosed
+
+    private void previewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_previewBtnActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_previewBtnActionPerformed
+
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_saveBtnActionPerformed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

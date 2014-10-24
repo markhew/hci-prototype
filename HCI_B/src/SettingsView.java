@@ -1,5 +1,9 @@
+
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,18 +18,21 @@ public class SettingsView extends javax.swing.JFrame {
 
     private ArrayList<ImageIcon> selected;
     private ArrayList<ImageIcon> notSelected;
+
     /**
      * Creates new form Settings
      */
     public SettingsView() {
+        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
+        this.setIconImage(icon);
         initComponents();
         setImages();
     }
-    
-    private void setImages(){
+
+    private void setImages() {
         selected = new ArrayList<ImageIcon>();
         notSelected = new ArrayList<ImageIcon>();
-        
+
         notSelected.add(new ImageIcon(getClass().getResource("/Images/GeneralTab.png")));
         notSelected.add(new ImageIcon(getClass().getResource("/Images/OutputTab.png")));
         notSelected.add(new ImageIcon(getClass().getResource("/Images/AasTab.png")));
@@ -172,6 +179,11 @@ public class SettingsView extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Browse");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Arguments:");
 
@@ -189,6 +201,11 @@ public class SettingsView extends javax.swing.JFrame {
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setText("Browse");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout generalTabLayout = new javax.swing.GroupLayout(generalTab);
         generalTab.setLayout(generalTabLayout);
@@ -202,32 +219,32 @@ public class SettingsView extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addGroup(generalTabLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(generalTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(generalTabLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2))
-                            .addComponent(jCheckBox1)
-                            .addGroup(generalTabLayout.createSequentialGroup()
-                                .addComponent(jCheckBox2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCheckBox3))
-                            .addGroup(generalTabLayout.createSequentialGroup()
-                                .addComponent(jCheckBox4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2))
-                            .addGroup(generalTabLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(generalTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(generalTabLayout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField1))))
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(generalTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3)
+                            .addGroup(generalTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(generalTabLayout.createSequentialGroup()
+                                    .addComponent(jLabel10)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField2))
+                                .addComponent(jCheckBox1)
+                                .addGroup(generalTabLayout.createSequentialGroup()
+                                    .addComponent(jCheckBox2)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jCheckBox3))
+                                .addGroup(generalTabLayout.createSequentialGroup()
+                                    .addComponent(jCheckBox4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton2))
+                                .addGroup(generalTabLayout.createSequentialGroup()
+                                    .addGap(21, 21, 21)
+                                    .addGroup(generalTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(generalTabLayout.createSequentialGroup()
+                                            .addComponent(jLabel8)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jTextField1))))
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         generalTabLayout.setVerticalGroup(
             generalTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,9 +276,10 @@ public class SettingsView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(generalTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         General.addTab("", new javax.swing.ImageIcon(getClass().getResource("/Images/GeneralTab2.png")), generalTab); // NOI18N
@@ -284,6 +302,11 @@ public class SettingsView extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Browse");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel13.setText("Available Options: {source_path} or {source_folder_name} (Not Both)");
 
@@ -583,7 +606,7 @@ public class SettingsView extends javax.swing.JFrame {
                                     .addComponent(jCheckBox14)
                                     .addComponent(jCheckBox15)
                                     .addComponent(jCheckBox16))
-                                .addGap(0, 97, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(advancedTabLayout.createSequentialGroup()
                                 .addComponent(jLabel29)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -637,6 +660,11 @@ public class SettingsView extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton5.setText("Check for Updates");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jLabel27.setText("Click 'Check for Updates' to check for new versions");
 
@@ -761,7 +789,7 @@ public class SettingsView extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(General, javax.swing.GroupLayout.DEFAULT_SIZE, 411, Short.MAX_VALUE)
+                .addComponent(General, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -852,23 +880,41 @@ public class SettingsView extends javax.swing.JFrame {
     private void GeneralStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_GeneralStateChanged
         // TODO add your handling code here:
         int tabCount = General.getTabCount();
-        if(tabCount > 1){
+        if (tabCount > 1) {
             int selectedTab = General.getSelectedIndex();
-            for(int i=0;i<tabCount;i++){
-                if(i==selectedTab){
+            for (int i = 0; i < tabCount; i++) {
+                if (i == selectedTab) {
                     General.setIconAt(i, selected.get(i));
-                }
-                else{
+                } else {
                     General.setIconAt(i, notSelected.get(i));
                 }
             }
         }
     }//GEN-LAST:event_GeneralStateChanged
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        new SourceView().show();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        new SourceView().show();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        new SourceView().show();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane General;

@@ -5,6 +5,7 @@
  */
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
 
 /**
@@ -19,11 +20,15 @@ public class QueueView extends JFrame {
      * Creates new form QueueView
      */
     public QueueView(MainView parent) {
+        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
+        this.setIconImage(icon);
         initComponents();
         this.parent = parent;
     }
 
     public QueueView() {
+        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
+        this.setIconImage(icon);
         initComponents();
         parent = null;
     }
@@ -55,8 +60,6 @@ public class QueueView extends JFrame {
         jLabel1 = new javax.swing.JLabel();
         QueuePanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        scrollQueue = new javax.swing.JScrollBar();
         QueueItem = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
         lblTitleValue = new javax.swing.JLabel();
@@ -68,6 +71,8 @@ public class QueueView extends JFrame {
         lblDestination = new javax.swing.JLabel();
         btnEditQueueItem = new javax.swing.JButton();
         btnRemoveQueueItem = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        scrollQueue = new javax.swing.JScrollBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(63, 160, 186));
@@ -88,6 +93,11 @@ public class QueueView extends JFrame {
 
         btnStartQueue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/StartQueue2.png"))); // NOI18N
         btnStartQueue.setBorderPainted(false);
+        btnStartQueue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartQueueActionPerformed(evt);
+            }
+        });
 
         comboDoWhenFinished.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Do nothing", "Shut down", "Suspend", "Hibernate", "Lock system", "Log off", "Quit" }));
 
@@ -104,7 +114,7 @@ public class QueueView extends JFrame {
                 .addGap(158, 158, 158)
                 .addComponent(lblDoWhenFinished)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(comboDoWhenFinished, 0, 510, Short.MAX_VALUE)
+                .addComponent(comboDoWhenFinished, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(25, 25, 25))
             .addGroup(HeaderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HeaderPanelLayout.createSequentialGroup()
@@ -162,8 +172,6 @@ public class QueueView extends JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jScrollPane1.setViewportView(scrollQueue);
-
         QueueItem.setBackground(new java.awt.Color(255, 255, 255));
         QueueItem.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -185,9 +193,19 @@ public class QueueView extends JFrame {
 
         btnEditQueueItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/EditJob.png"))); // NOI18N
         btnEditQueueItem.setBorderPainted(false);
+        btnEditQueueItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditQueueItemActionPerformed(evt);
+            }
+        });
 
         btnRemoveQueueItem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/RemoveJob.png"))); // NOI18N
         btnRemoveQueueItem.setBorderPainted(false);
+        btnRemoveQueueItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveQueueItemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout QueueItemLayout = new javax.swing.GroupLayout(QueueItem);
         QueueItem.setLayout(QueueItemLayout);
@@ -247,6 +265,8 @@ public class QueueView extends JFrame {
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
+        jScrollPane1.setViewportView(scrollQueue);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -254,21 +274,20 @@ public class QueueView extends JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(QueueItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jScrollPane1)
-                .addGap(78, 78, 78))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(QueueItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(114, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(12, 12, 12))))
+                        .addGap(0, 200, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout QueuePanelLayout = new javax.swing.GroupLayout(QueuePanel);
@@ -278,13 +297,13 @@ public class QueueView extends JFrame {
             .addGroup(QueuePanelLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         QueuePanelLayout.setVerticalGroup(
             QueuePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(QueuePanelLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 112, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,6 +330,7 @@ public class QueueView extends JFrame {
 
     private void btnClearQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearQueueActionPerformed
         // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
     }//GEN-LAST:event_btnClearQueueActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
@@ -318,6 +338,21 @@ public class QueueView extends JFrame {
         this.parent.resetQueueBtn();
         this.dispose();
     }//GEN-LAST:event_formWindowClosed
+
+    private void btnStartQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartQueueActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_btnStartQueueActionPerformed
+
+    private void btnEditQueueItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditQueueItemActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_btnEditQueueItemActionPerformed
+
+    private void btnRemoveQueueItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveQueueItemActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_btnRemoveQueueItemActionPerformed
 
     /**
      * @param args the command line arguments

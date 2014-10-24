@@ -1,10 +1,13 @@
 
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.awt.image.BufferedImage;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -31,6 +34,8 @@ public class MainView extends javax.swing.JFrame {
      * Creates new form MainView
      */
     public MainView() {
+        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
+        this.setIconImage(icon);
         initComponents();
         setImages();
         jobToggleBtn.setBorderPainted(false);
@@ -105,8 +110,18 @@ public class MainView extends javax.swing.JFrame {
         });
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Help.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/StartQueue.png"))); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jobToggleBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/AddJob.png"))); // NOI18N
         jobToggleBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -213,6 +228,15 @@ public class MainView extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jobToggleBtnActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     //Changes the new job toggle icon back to "Add Job" from cancel
     public void resetToggleBtn(){

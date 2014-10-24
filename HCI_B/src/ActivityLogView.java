@@ -1,4 +1,7 @@
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -20,6 +23,8 @@ public class ActivityLogView extends javax.swing.JFrame {
      * Creates new form ActivityLogView
      */
     public ActivityLogView() {
+        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
+        this.setIconImage(icon);
         initComponents();
         setImages();
         this.setSize(678, 562);
@@ -123,10 +128,20 @@ public class ActivityLogView extends javax.swing.JFrame {
         clipBoardBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Clipboard.png"))); // NOI18N
         clipBoardBtn.setBorder(null);
         clipBoardBtn.setBorderPainted(false);
+        clipBoardBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clipBoardBtnActionPerformed(evt);
+            }
+        });
 
         logDirectoryBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/OpenLog.png"))); // NOI18N
         logDirectoryBtn.setBorder(null);
         logDirectoryBtn.setBorderPainted(false);
+        logDirectoryBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logDirectoryBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout activityLogPanel1Layout = new javax.swing.GroupLayout(activityLogPanel1);
         activityLogPanel1.setLayout(activityLogPanel1Layout);
@@ -195,6 +210,16 @@ public class ActivityLogView extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_tabbedPaneStateChanged
+
+    private void logDirectoryBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logDirectoryBtnActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_logDirectoryBtnActionPerformed
+
+    private void clipBoardBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clipBoardBtnActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Not implemented.");
+    }//GEN-LAST:event_clipBoardBtnActionPerformed
 
     /**
      * @param args the command line arguments
