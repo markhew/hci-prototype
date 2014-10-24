@@ -20,15 +20,15 @@ public class QueueView extends JFrame {
      * Creates new form QueueView
      */
     public QueueView(MainView parent) {
-        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
-        this.setIconImage(icon);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Images/handbrake-Icon.png"));
+        this.setIconImage(icon.getImage());
         initComponents();
         this.parent = parent;
     }
 
     public QueueView() {
-        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
-        this.setIconImage(icon);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Images/handbrake-Icon.png"));
+        this.setIconImage(icon.getImage());
         initComponents();
         parent = null;
     }

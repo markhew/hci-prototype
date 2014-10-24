@@ -23,8 +23,8 @@ public class SettingsView extends javax.swing.JFrame {
      * Creates new form Settings
      */
     public SettingsView() {
-        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
-        this.setIconImage(icon);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Images/handbrake-Icon.png"));
+        this.setIconImage(icon.getImage());
         initComponents();
         setImages();
     }

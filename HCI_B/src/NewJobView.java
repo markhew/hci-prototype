@@ -1,3 +1,4 @@
+
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import javax.swing.ButtonGroup;
@@ -10,7 +11,6 @@ import javax.swing.JOptionPane;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author markhew
@@ -30,44 +30,45 @@ public class NewJobView extends javax.swing.JFrame {
     private double aspectRatio;
     private SourceView sv;
     private MainView parent;
+
     public NewJobView(MainView parent) {
-        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
-        this.setIconImage(icon);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Images/handbrake-Icon.png"));
+        this.setIconImage(icon.getImage());
         initComponents();
         this.setResizable(false);
         setImages();
         addCustomization();
-        this.setSize(viewWidth,viewHeight);
+        this.setSize(viewWidth, viewHeight);
         this.parent = parent;
         sv = new SourceView();
         //Setting the height and width in the picture section for advanced
-        aspectRatio = (double)defaultWidth / (double)defaultHeight;
-        sizeLabel.setText(String.valueOf(defaultWidth)+"x"+String.valueOf(defaultHeight));
+        aspectRatio = (double) defaultWidth / (double) defaultHeight;
+        sizeLabel.setText(String.valueOf(defaultWidth) + "x" + String.valueOf(defaultHeight));
         ratioLabel.setText(String.valueOf(aspectRatio));
         outWidthField.setText(String.valueOf(defaultWidth));
         outHeightField.setText(String.valueOf(defaultHeight));
         groupButtons();
     }
-    
+
     //Adds customization to the components
-    private void addCustomization(){
+    private void addCustomization() {
         advancedToggleButton.setOpaque(false);
         optionsBtn.setOpaque(false);
         advancedToggleButton.setContentAreaFilled(false);
         optionsBtn.setContentAreaFilled(false);
-        
+
     }
-    
-    private void setImages(){
+
+    private void setImages() {
         //Setting the index for the image icons is vital as image will match the tab
         selectedTabs = new ArrayList<ImageIcon>();
         nonSelectedTabs = new ArrayList<ImageIcon>();
-        
+
         nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/VideoTab.png")));
         nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/PictureTab.png")));
         nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/AudioTab.png")));
         nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/SubtitlesTab.png")));
-        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/ChaptersTab.png")));    
+        nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/ChaptersTab.png")));
         nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/OptimiseTab.png")));
         nonSelectedTabs.add(new ImageIcon(getClass().getResource("/Images/FiltersTab.png")));
 
@@ -75,15 +76,13 @@ public class NewJobView extends javax.swing.JFrame {
         selectedTabs.add(new ImageIcon(getClass().getResource("/Images/PictureTab2.png")));
         selectedTabs.add(new ImageIcon(getClass().getResource("/Images/AudioTab2.png")));
         selectedTabs.add(new ImageIcon(getClass().getResource("/Images/SubtitlesTab2.png")));
-        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/ChaptersTab2.png")));    
+        selectedTabs.add(new ImageIcon(getClass().getResource("/Images/ChaptersTab2.png")));
         selectedTabs.add(new ImageIcon(getClass().getResource("/Images/OptimiseTab2.png")));
         selectedTabs.add(new ImageIcon(getClass().getResource("/Images/FiltersTab2.png")));
 
-
     }
-    
-    
-    private void groupButtons(){
+
+    private void groupButtons() {
         ButtonGroup picbg = new ButtonGroup();
         ButtonGroup vidbg = new ButtonGroup();
         picbg.add(automaticRadio);
@@ -1065,22 +1064,21 @@ public class NewJobView extends javax.swing.JFrame {
         // TODO add your handling code here:
         int newWidth = Integer.parseInt(outWidthField.getText());
         int height = Integer.parseInt(outHeightField.getText());
-        aspectRatio = (double)newWidth / (double)height;
-        
-        sizeLabel.setText(String.valueOf(newWidth)+"x"+String.valueOf(height));
+        aspectRatio = (double) newWidth / (double) height;
+
+        sizeLabel.setText(String.valueOf(newWidth) + "x" + String.valueOf(height));
         ratioLabel.setText(String.valueOf(aspectRatio));
     }//GEN-LAST:event_outWidthFieldFocusLost
 
     private void advancedToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advancedToggleButtonActionPerformed
         // TODO add your handling code here:
-        if(advancedToggleButton.isSelected()){
+        if (advancedToggleButton.isSelected()) {
             advancedPanel.setVisible(true);
-            this.setSize(viewWidthExtended,viewHeight);
+            this.setSize(viewWidthExtended, viewHeight);
             advancedToggleButton.setText("Simplify");
-        }
-        else{
+        } else {
             advancedPanel.setVisible(false);
-            this.setSize(viewWidth,viewHeight);
+            this.setSize(viewWidth, viewHeight);
             advancedToggleButton.setText("Advanced");
 
         }
@@ -1089,7 +1087,7 @@ public class NewJobView extends javax.swing.JFrame {
     private void srcBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_srcBtnActionPerformed
         // TODO add your handling code here:
         sv.setVisible(true);
-        
+
     }//GEN-LAST:event_srcBtnActionPerformed
 
     private void doneBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneBtnActionPerformed
@@ -1102,14 +1100,13 @@ public class NewJobView extends javax.swing.JFrame {
     private void TabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_TabbedPaneStateChanged
         // TODO add your handling code here:
         int tabCount = TabbedPane.getTabCount();
-        
-        if(tabCount > 1){
+
+        if (tabCount > 1) {
             int selectedTab = TabbedPane.getSelectedIndex();
-            for(int i=0; i< tabCount;i++){
-                if(i == selectedTab){
+            for (int i = 0; i < tabCount; i++) {
+                if (i == selectedTab) {
                     TabbedPane.setIconAt(i, selectedTabs.get(i));
-                }
-                else{
+                } else {
                     TabbedPane.setIconAt(i, nonSelectedTabs.get(i));
                 }
             }
@@ -1132,7 +1129,7 @@ public class NewJobView extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Not implemented.");
     }//GEN-LAST:event_saveBtnActionPerformed
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JobPanel;
     private javax.swing.JPanel OptimisePanel;

@@ -1,3 +1,4 @@
+
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import javax.swing.ImageIcon;
@@ -12,26 +13,26 @@ import javax.swing.JOptionPane;
  *
  * @author markhew
  */
-
 public class ActivityLogView extends javax.swing.JFrame {
 
     private ImageIcon scan;
     private ImageIcon scan2;
     private ImageIcon encode;
     private ImageIcon encode2;
+
     /**
      * Creates new form ActivityLogView
      */
     public ActivityLogView() {
-        Image icon = new BufferedImage(1, 1, BufferedImage.TYPE_INT_ARGB_PRE);
-        this.setIconImage(icon);
+        ImageIcon icon = new ImageIcon(getClass().getResource("/Images/handbrake-Icon.png"));
+        this.setIconImage(icon.getImage());
         initComponents();
         setImages();
         this.setSize(678, 562);
         this.setResizable(false);
     }
-    
-    private void setImages(){
+
+    private void setImages() {
         scan = new ImageIcon(getClass().getResource("/Images/ScanLog.png"));
         scan2 = new ImageIcon(getClass().getResource("/Images/ScanLog2.png"));
         encode = new ImageIcon(getClass().getResource("/Images/EncodeLog.png"));
@@ -199,14 +200,13 @@ public class ActivityLogView extends javax.swing.JFrame {
 
     private void tabbedPaneStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabbedPaneStateChanged
         // TODO add your handling code here:
-        if(tabbedPane.getTabCount() > 1){
-            if(tabbedPane.getSelectedIndex() == 0){
+        if (tabbedPane.getTabCount() > 1) {
+            if (tabbedPane.getSelectedIndex() == 0) {
                 tabbedPane.setIconAt(0, scan2);
                 tabbedPane.setIconAt(1, encode);
-            }
-            else{
-                tabbedPane.setIconAt(0,scan);
-                tabbedPane.setIconAt(1,encode2);
+            } else {
+                tabbedPane.setIconAt(0, scan);
+                tabbedPane.setIconAt(1, encode2);
             }
         }
     }//GEN-LAST:event_tabbedPaneStateChanged
